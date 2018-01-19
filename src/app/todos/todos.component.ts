@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
   todos;
+  text;
   constructor() { }
 
   ngOnInit() {
@@ -21,6 +22,21 @@ export class TodosComponent implements OnInit {
         text: "Dinner at office"
       }
     ];
+  }
+
+  addTodo() {
+    console.log(this.text);
+    this.todos.push({
+      text: this.text
+    });
+  }
+
+  deleteTodo(todoText) {
+    for(var i = 0; i < this.todos.length; ++i) {
+      if(this.todos[i].text == todoText) {
+        this.todos.splice(i, 1);
+      }
+    }
   }
 
 }
