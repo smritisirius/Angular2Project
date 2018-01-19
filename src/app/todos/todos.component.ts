@@ -33,7 +33,7 @@ export class TodosComponent implements OnInit {
 
   deleteTodo(todoText) {
     for(var i = 0; i < this.todos.length; ++i) {
-      if(this.todos[i].text == todoText) {
+      if (this.todos[i].text == todoText) {
         this.todos.splice(i, 1);
       }
     }
