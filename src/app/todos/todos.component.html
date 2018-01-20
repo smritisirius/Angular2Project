@@ -2,19 +2,19 @@
 
 <div *ngIf="appState == 'default'">
 	<form (submit)="addTodo()" >
-	  <input type="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
+	  <input class="form-control" type="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
 	</form>
 </div>
 
 <div *ngIf="appState == 'edit'">
 	<form (submit)="updateTodo()" >
-	  <input type="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
+	  <input class="form-control" type="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
 	</form>
 </div>
 
 <h3>Todo list</h3>
-<ul>
-  <li *ngFor="let todo of todos">
-    <span (click)="editTodo(todo)"> {{todo.text}}</span> <button (click)="deleteTodo(todo.text)">X</button>
+<ul class = 'list-group'>
+  <li *ngFor="let todo of todos" class = 'list-group-item'>
+    <span (click)="editTodo(todo)"> {{todo.text}}</span> <button class = 'btn btn-danger btn-small' (click)="deleteTodo(todo.text)">x</button>
   </li>
 </ul>
