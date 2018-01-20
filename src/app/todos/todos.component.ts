@@ -36,7 +36,6 @@ export class TodosComponent implements OnInit {
   }
 
   editTodo(todo) {
-
     this.appState = 'edit'
     this.text = todo.text
     this.oldTest = todo.text
@@ -50,5 +49,7 @@ export class TodosComponent implements OnInit {
         this.todos[i].text = this.text
       }
     }
+    this._todoService.updateTodo(this.oldTest, this.text)
   }
+
 }
