@@ -1,11 +1,12 @@
-<h3>Todo list</h3>
+<h3>Add Todo</h3>
 
 <form (submit)="addTodo()">
-  <input type="text" [(ngModel)]="text">
+  <input type="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
 </form>
 
+<h3>Todo list</h3>
 <ul>
   <li *ngFor="let todo of todos">
-    {{todo.text}} <button style="height:20px;width:20px" (click)="deleteTodo(todo.text)"></button>
+    {{todo.text}} <button (click)="deleteTodo(todo.text)">X</button>
   </li>
 </ul>

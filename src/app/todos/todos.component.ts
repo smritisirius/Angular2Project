@@ -25,7 +25,6 @@ export class TodosComponent implements OnInit {
   }
 
   addTodo() {
-    console.log(this.text);
     this.todos.push({
       text: this.text
     });
