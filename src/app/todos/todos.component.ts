@@ -9,6 +9,8 @@ import { TodoService } from '../todo.service'
 export class TodosComponent implements OnInit {
   todos;
   text;
+  oldTest;
+  appState = 'default'
   constructor(private _todoService: TodoService) { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class TodosComponent implements OnInit {
     var newTodo = {
       text: this.text
     }
+    this.text = ''
     this.todos.push(newTodo);
     this._todoService.addTodo(newTodo)
   }
@@ -32,4 +35,20 @@ export class TodosComponent implements OnInit {
     this._todoService.deleteTodo(todoText)
   }
 
+  editTodo(todo) {
+
+    this.appState = 'edit'
+    this.text = todo.text
+    this.oldTest = todo.text
+    console.log(this.appState)
+  }
+
+  updateTodo() {
+    console.log(this.text)
+     for(var i = 0; i < this.todos.length; ++i) {
+      if (this.todos[i].text == this.oldTest) {
+        this.todos[i].text = this.text
+      }
+    }
+  }
 }
