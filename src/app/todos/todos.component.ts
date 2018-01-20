@@ -36,7 +36,10 @@ export class TodosComponent implements OnInit {
   }
 
   editTodo(todo) {
-    this.appState = 'edit'
+    if(this.appState == 'edit')
+      this.appState = 'default';
+    else
+      this.appState = 'edit'
     this.text = todo.text
     this.oldTest = todo.text
     console.log(this.appState)
